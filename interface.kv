@@ -1,0 +1,66 @@
+# Arquivo: interface.kv
+<MainLayout>:
+    orientation: 'vertical'
+    padding: '10dp'
+    spacing: '10dp'
+    BoxLayout:
+        size_hint_y: None
+        height: '50dp'
+        TextInput:
+            id: url_input
+            hint_text: 'Cole o link aqui...'
+            multiline: False
+            font_size: '18sp'
+        Button:
+            id: analisar_button
+            text: 'Analisar'
+            size_hint_x: None
+            width: '100dp'
+            on_press: root.iniciar_analise()
+    Label:
+        id: verdict_label
+        text: 'Aguardando Análise'
+        font_size: '24sp'
+        bold: True
+        size_hint_y: None
+        height: '60dp'
+        canvas.before:
+            Color:
+                rgb: 0.2, 0.2, 0.2
+            Rectangle:
+                pos: self.pos
+                size: self.size
+    ScrollView:
+        Label:
+            id: log_output
+            text: 'Pronto para investigar...'
+            size_hint_y: None
+            height: self.texture_size[1]
+            text_size: self.width, None
+            padding: '10dp', '10dp'
+            halign: 'left'
+            valign: 'top'
+            font_name: 'Noto Mono'
+    BoxLayout:
+        size_hint_y: None
+        height: '120dp'
+        orientation: 'vertical'
+        spacing: '5dp'
+        Button:
+            id: reputation_button
+            text: '🛡️ Verificar Reputação'
+            disabled: True
+            font_name: 'Noto Sans'
+            on_press: root.abrir_url('reputation')
+        Button:
+            id: price_button
+            text: '💲 Comparar Preços'
+            disabled: True
+            font_name: 'Noto Sans'
+            on_press: root.abrir_url('price')
+        Button:
+            id: urlscan_button
+            text: '🖼️ Ver Análise e Screenshot'
+            disabled: True
+            font_name: 'Noto Sans'
+            on_press: root.abrir_url('urlscan')
