@@ -7,7 +7,7 @@ source.main_py = main.py
 version = 1.0
 
 # --- LINHA CORRIGIDA ---
-requirements = python3,cython,kivy,requests,beautifulsoup4,hashlib
+requirements = python3,cython,kivy,requests,beautifulsoup4,hashlib,pyjnius==master
 
 orientation = portrait
 android.permissions = INTERNET
