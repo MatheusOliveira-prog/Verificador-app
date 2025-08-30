@@ -1,0 +1,13 @@
+tasks:
+  - name: Setup & Compile
+    init: |
+      sudo add-apt-repository ppa:deadsnakes/ppa
+      sudo apt-get update
+      sudo apt-get install -y python3.11 python3.11-venv
+      python3.11 -m venv venv
+      source venv/bin/activate
+      pip install --upgrade pip
+      pip install buildozer kivy requests python-whois beautifulsoup4
+    command: |
+      source venv/bin/activate
+      echo "Ambiente pronto. Para compilar, rode: buildozer -v android debug"
